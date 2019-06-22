@@ -1,0 +1,27 @@
+<div *ngIf="loading">loading...</div>
+
+<div class="container">
+  <div *ngIf="!loading"  class="card-container">
+    <div *ngFor="let item of items">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{ item.name }}</mat-card-title>
+          <mat-card-subtitle><b>{{ item.price }}</b> | {{ item.vendor }}</mat-card-subtitle>
+        </mat-card-header>
+        <div class="image-container">
+          <img mat-card-image src="{{ item.image }}" class="product-image">
+        </div>
+        <mat-card-content>
+          <p>
+            {{ item.description }}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-icon mat-button>
+            <mat-icon>favorite_border</mat-icon> FAVOURITE
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

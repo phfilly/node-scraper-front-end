@@ -1,0 +1,36 @@
+.product-image {
+  max-width: 150px;
+}
+
+.example-card {
+  max-width: 250px;
+  min-width: 250px;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+
+.card-container > div {
+  display: inline-block;
+}
+
+.mat-card-title {
+  text-align: left;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  display: block;
+}
+
+.image-container {
+  width: 100%;
+
+  img {
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+  }
+}
