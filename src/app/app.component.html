@@ -1,12 +1,31 @@
 <div *ngIf="loading">loading...</div>
 
-<div class="container">
-  <div *ngIf="!loading"  class="card-container">
+
+<div class="container" *ngIf="!loading">
+  <div>
+    <h1>Scrape details</h1>
+
+    <div *ngIf="items.length > 0">
+      Products: {{ items.length }} | 
+      Latest Scrape: {{ items[items.length - 1]['dateTime'] }}
+    </div>
+    <div>{{ message }}</div>
+  </div>
+
+  <hr> 
+
+  <div class="card-container">
     <div *ngFor="let item of items">
       <mat-card class="example-card">
         <mat-card-header>
           <mat-card-title>{{ item.name }}</mat-card-title>
-          <mat-card-subtitle><b>{{ item.price }}</b> | {{ item.vendor }}</mat-card-subtitle>
+          <mat-card-subtitle>
+            <mat-chip-list>
+              <mat-chip class='price'>{{ item.price }}</mat-chip>
+              <mat-chip>{{ item.vendor }}</mat-chip>
+            </mat-chip-list>
+            {{ item.dateTime }}
+          </mat-card-subtitle>
         </mat-card-header>
         <div class="image-container">
           <img mat-card-image src="{{ item.image }}" class="product-image">
@@ -18,7 +37,15 @@
         </mat-card-content>
         <mat-card-actions>
           <button mat-icon mat-button>
-            <mat-icon>favorite_border</mat-icon> FAVOURITE
+            <mat-icon>favorite_border</mat-icon>
+          </button>
+          <a [href]="item.link" target="_blank">
+            <button mat-icon mat-button>
+              <mat-icon>link</mat-icon>
+            </button>
+          </a>
+          <button mat-icon mat-button>
+            <mat-icon>zoom_in</mat-icon>
           </button>
         </mat-card-actions>
       </mat-card>

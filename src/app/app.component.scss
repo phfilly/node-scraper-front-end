@@ -5,14 +5,34 @@
 .example-card {
   max-width: 250px;
   min-width: 250px;
+
+  .price {
+    color: #fff;
+    background-color: #ff8383;
+  }
+}
+
+mat-chip {
+  text-transform: capitalize;
 }
 
 .example-header-image {
   background-size: cover;
 }
 
+.card-container {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.mat-card-content p {
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .card-container > div {
-  display: inline-block;
+  margin-bottom: 15px;
 }
 
 .mat-card-title {
