@@ -17,7 +17,6 @@ export class AppComponent implements OnInit {
   async ngOnInit() {
     await this.getItems()
     .subscribe(result => {
-      
       if (result.length > 0) {
         this.items = result
         .map((x) => x.payload.doc.data())
@@ -41,7 +40,7 @@ export class AppComponent implements OnInit {
     return this.db.collection('laptops').snapshotChanges();
   }
 
-  priceConvert(item: string) {
+  priceConvert(item: any) {
     if (item.includes(' X ')) {
       const tmpPrice = item.split('X');
       const totalPayment = parseInt(tmpPrice[0].trim(), 10) * parseInt(tmpPrice[1].trim(), 10);
@@ -51,7 +50,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  convertEpocToTime(epoch: number) {
+  convertEpocToTime(epoch: any) {
     const newDate = new Date(epoch);
     return `${newDate.toLocaleString()}`;
   }
