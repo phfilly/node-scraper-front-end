@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
         this.message = 'No products found...';
       }
       this.loading = false;
+      console.log(this.items);
     });
   }
 
